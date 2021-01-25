@@ -1,0 +1,29 @@
+[[http://www.linux-ax25.org/wiki/Main_Page][Linux AX.25]] as a [[http://www.linux-ax25.org/wiki/Main_Page][Nix Flake]].
+
+* Configuration
+#+BEGIN_SRC nix
+  {
+    ax25 = {
+      enable = true;
+      ports = {
+        direwolf = {
+          callsign = "2E0YML-0";
+          speed = 4800;
+          description = "direwolf";
+          paclen = 256;
+          window = 2;
+        };
+        arduino = {
+          callsign = "2E0YML-1";
+          speed = 38400;
+          description = "arduino";
+          paclen = 256;
+          window = 2;
+        };
+      };
+    };
+  }
+#+END_SRC
+
+~ax25-tools~ and ~ax25-apps~ are added to ~environment.systemPackages~ if the module is enabled.
+
